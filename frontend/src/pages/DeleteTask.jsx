@@ -1,10 +1,8 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
+import React from "react";
 
 const DeleteTask = () => {
-  return (
-    <div>DeleteTask</div>
-  )
-}
+  return <div>DeleteTask</div>;
+};
 
-export default DeleteTask
+export default DeleteTask;
