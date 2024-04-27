@@ -7,18 +7,18 @@ const router = express.Router()
 //Route for Save a New Task
 router.post("/", async (req, res) => {
   try {
-    if (!res.body.title || !res.body.description) {
+    if (!req.body.title || !req.body.description) {
       return res.status(400).send({
         message: "Send all required fields",
       });
     }
     const newTASK = {
-      title: req.body.title,
-      description: req.body.description,
-      status: req.body.status
+      title : req.body.title,
+      description : req.body.description
     };
     const task = await Task.create(newTASK);
-    return res.status(201).send(task);
+    return res.status(200).send(task);
+
   } catch (err) {
     console.log(err.message);
     res.status(500).send({ message: err.message });

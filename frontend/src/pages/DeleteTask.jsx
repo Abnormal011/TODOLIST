@@ -12,8 +12,10 @@ const DeleteTask = () => {
   
   const handelDeleteTask = () => {
     setLoading(true)
-    axios.delete(`http://localhost:5000/api/tasks/${id}`)
-    .then(() => {
+    console.log(id);
+    axios
+      .delete(`http://localhost:5555/tasks/${id}`)
+      .then(() => {
       setLoading(false)
       navigate("/")
     })

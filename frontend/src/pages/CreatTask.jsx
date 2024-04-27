@@ -9,18 +9,17 @@ import { useNavigate } from "react-router-dom";
 const CreatTask = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [status, setStatus] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
   const handleSaveTask = () => {
     const data = {
       title,
       description,
-      status,
     };
     setLoading(true);
     axios
-      .post("http://localhost:5555/tasks/", data)
+      .post("http://localhost:5555/tasks", data)
       .then(() => {
         setLoading(false);
         navigate("/");
@@ -53,15 +52,6 @@ const CreatTask = () => {
             type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="border-2 border-gray-500 px-4 py-2 w-full"
-          />
-        </div>
-        <div className="my-4">
-          <label className="text-xl mr-4 text-gray-500">Status</label>
-          <input
-            type="text"
-            value={status}
-            onChange={(e) => setStatus(e.target.value)}
             className="border-2 border-gray-500 px-4 py-2 w-full"
           />
         </div>
